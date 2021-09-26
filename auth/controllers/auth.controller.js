@@ -16,6 +16,7 @@ class AuthController {
                 httpOnly: true,
                 secure: process.env.SECURE,
                 subdomain: 'murmuring-crag-87565',
+                domain: '.herokuapp.com',
                 sameSite: 'None',
             });
             return res.status(200).json(userData);
@@ -32,6 +33,7 @@ class AuthController {
                 httpOnly: true,
                 secure: process.env.SECURE,
                 subdomain: 'murmuring-crag-87565',
+                domain: '.herokuapp.com',
                 sameSite: 'None',
             });
             return res.status(200).json(userData);
