@@ -15,7 +15,7 @@ class AuthController {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
                 secure: process.env.SECURE,
-                domain: 'netlify',
+                domain: process.env.CLIENT_URL,
                 sameSite: 'none',
             });
             return res.status(200).json(userData);
@@ -31,7 +31,7 @@ class AuthController {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
                 secure: process.env.SECURE,
-                domain: 'netlify',
+                domain: process.env.CLIENT_URL,
                 sameSite: 'none',
             });
             return res.status(200).json(userData);
