@@ -15,7 +15,7 @@ class AuthController {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
                 secure: process.env.SECURE,
-                domain: 'murmuring-crag-87565.herokuapp.com',
+                domain: 'herokuapp.com',
                 sameSite: 'None',
             });
             return res.status(200).json(userData);
@@ -30,7 +30,7 @@ class AuthController {
             res.cookie('refreshToken', userData.refreshToken, {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
-                domain: 'murmuring-crag-87565.herokuapp.com',
+                domain: 'herokuapp.com',
                 secure: process.env.SECURE,
                 sameSite: 'None',
             });
