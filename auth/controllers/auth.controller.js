@@ -15,7 +15,7 @@ class AuthController {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
                 secure: process.env.SECURE,
-                domain: 'herokuapp.com',
+                domain: '.example.com',
                 sameSite: 'None',
             });
             return res.status(200).json(userData);
@@ -30,7 +30,7 @@ class AuthController {
             res.cookie('refreshToken', userData.refreshToken, {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
-                domain: 'herokuapp.com',
+                domain: '.example.com',
                 secure: process.env.SECURE,
                 sameSite: 'None',
             });
