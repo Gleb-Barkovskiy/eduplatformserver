@@ -11,13 +11,12 @@ class AuthController {
                 next(AuthError.BadRequest('Ошибка валидации', errors.array()));
             };
             const userData = await AuthService.createUser(req.body);
-            res.cookie('refreshToken', userData.refreshToken, {
+            /*res.cookie('refreshToken', userData.refreshToken, {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
                 secure: process.env.SECURE,
-                domain: 'infallible-brattain-cf3a92.netlify.app',
                 sameSite: 'none',
-            });
+            });*/
             return res.status(200).json(userData);
         } catch (error) {
             next(error);
@@ -27,13 +26,12 @@ class AuthController {
     async loginUser(req, res, next) {
         try {
             const userData = await AuthService.loginUser(req.body);
-            res.cookie('refreshToken', userData.refreshToken, {
+            /*res.cookie('refreshToken', userData.refreshToken, {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
                 secure: process.env.SECURE,
-                domain: 'infallible-brattain-cf3a92.netlify.app',
                 sameSite: 'none',
-            });
+            });*/
             return res.status(200).json(userData);
         } catch (error) {
             next(error);
@@ -42,7 +40,7 @@ class AuthController {
 
     async logoutUser(req, res, next) {
         try {
-            const {refreshToken} = req.cookies;
+            const {refreshToken} = req.params;
             const data = await AuthService.logoutUser(refreshToken);
             res.clearCookie('refreshToken');
             return res.status(200).json(data);
@@ -53,7 +51,7 @@ class AuthController {
 
     async refresh(req, res, next) {
         try {
-            const {refreshToken} = req.cookies;
+            const {refreshToken} = req.params;
             const tokenData = await AuthService.refresh(refreshToken);
             res.cookie('refreshToken', tokenData.refreshToken, {
                 maxAge: 30 * 24 * 60 * 60 * 1000,

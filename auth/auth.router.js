@@ -11,6 +11,6 @@ authRouter.post('/signup',[
 
 authRouter.post('/signin', AuthController.loginUser);
 authRouter.post('/signout', AuthController.logoutUser);
-authRouter.get('/refresh', AuthController.refresh);
+authRouter.get('/refresh/:refreshToken', AuthController.refresh);
 
 export default authRouter;
