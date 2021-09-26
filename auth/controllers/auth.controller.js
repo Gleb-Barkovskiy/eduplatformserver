@@ -15,7 +15,7 @@ class AuthController {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
                 secure: process.env.SECURE,
-                domain: 'murmuring-crag-87565.herokuapp.com',
+                domain: '.herokuapp.com',
                 path: '/',
                 sameSite: 'None',
             });
@@ -32,7 +32,7 @@ class AuthController {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
                 secure: process.env.SECURE,
-                domain: 'murmuring-crag-87565.herokuapp.com',
+                domain: '.herokuapp.com',
                 path: '/',
                 sameSite: 'None',
             });
