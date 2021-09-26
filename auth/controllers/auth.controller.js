@@ -16,7 +16,6 @@ class AuthController {
                 httpOnly: true,
                 secure: process.env.SECURE,
                 sameSite: 'None',
-                domain: 'infallible-brattain-cf3a92.netlify.app'
             });
             return res.status(200).json(userData);
         } catch (error) {
@@ -32,7 +31,6 @@ class AuthController {
                 httpOnly: true,
                 secure: process.env.SECURE,
                 sameSite: 'None',
-                domain: 'infallible-brattain-cf3a92.netlify.app'
             });
             return res.status(200).json(userData);
         } catch (error) {
