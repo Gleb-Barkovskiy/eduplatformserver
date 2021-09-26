@@ -11,8 +11,8 @@ import { authErrorsMiddleware } from './auth/middleware/errors.middleware.js';
 
 const app = express();
 dotenv.config({path: `.${process.env.NODE_ENV}.env`});
-app.use(bodyParser.json({limit: "50mb", extended: true}));
-app.use(bodyParser.urlencoded({limit: "50mb", extended: true}));
+app.use(bodyParser.json({limit: "10mb", extended: true}));
+app.use(bodyParser.urlencoded({limit: "10mb", extended: true}));
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
