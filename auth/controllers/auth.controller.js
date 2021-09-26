@@ -15,7 +15,6 @@ class AuthController {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
                 secure: process.env.SECURE,
-                path: process.env.CLIENT_URL,
                 sameSite: 'Lax',
             });
             return res.status(200).json(userData);
@@ -31,8 +30,7 @@ class AuthController {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
                 secure: process.env.SECURE,
-                path: process.env.CLIENT_URL,
-                sameSite: 'Lax',
+                sameSite: 'None',
             });
             return res.status(200).json(userData);
         } catch (error) {
