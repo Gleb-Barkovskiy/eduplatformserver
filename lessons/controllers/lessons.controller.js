@@ -9,7 +9,6 @@ class LessonController {
             const lessons = await LessonService.getLessons(req.params);
             return res.status(200).json(lessons);
         } catch (error) {
-            console.log(error.message)
             next(error);
         };
     };
