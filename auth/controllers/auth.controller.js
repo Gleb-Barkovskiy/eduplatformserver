@@ -32,7 +32,7 @@ class AuthController {
                 httpOnly: true,
                 secure: process.env.SECURE,
                 path: process.env.CLIENT_URL,
-                sameSite: 'None',
+                sameSite: 'Lax',
             });
             return res.status(200).json(userData);
         } catch (error) {
