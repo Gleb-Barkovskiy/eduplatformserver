@@ -14,6 +14,8 @@ class AuthController {
             res.cookie('refreshToken', userData.refreshToken, {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
+                secure: process.env.SECURE,
+                path: process.env.CLIENT_URL
             });
             return res.status(200).json(userData);
         } catch (error) {
@@ -27,6 +29,7 @@ class AuthController {
             res.cookie('refreshToken', userData.refreshToken, {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
+                secure: process.env.SECURE,
                 path: process.env.CLIENT_URL
             });
             return res.status(200).json(userData);
