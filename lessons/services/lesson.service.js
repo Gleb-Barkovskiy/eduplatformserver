@@ -20,7 +20,7 @@ class LessonService {
                     return lessons;
             };
         };
-        const lessons = await Lesson.find().sort({createdAt: "descending"}).limit(9);
+        const lessons = await Lesson.find().sort({createdAt: "descending"});
         return lessons;
     };
 
