@@ -5,7 +5,7 @@ import {check} from 'express-validator';
 const lessonsRouter = express.Router();
 
 
-lessonsRouter.get('/lessons/:field*?/:userId*?', LessonController.getLessons);
+lessonsRouter.get('/lessons/:field*?/:value*?', LessonController.getLessons);
 lessonsRouter.get('/lesson/:id/:userId*?', LessonController.getOneLesson);
 
 lessonsRouter.post('/lesson/create', [authMiddleware,

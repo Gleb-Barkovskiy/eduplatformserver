@@ -6,7 +6,7 @@ class LessonService {
 
     async getLessons(filter) {
         if(filter.field) {
-            const value = filter['0'].substr(1);
+            const value = filter['0'].substr(1).split(' ');
             let lessons = [];
             switch (filter.field) {
                 case "likes":
@@ -17,6 +17,9 @@ class LessonService {
                     return lessons;
                 case "authorId":
                     lessons = await Lesson.find({authorId: value}).sort({createdAt: "descending"});
+                    return lessons;
+                case "tags":
+                    lessons = await Lesson.find({tags: {$in: value}}).sort({createdAt: "descending"});
                     return lessons;
             };
         };
@@ -39,7 +42,7 @@ class LessonService {
     };
 
     async createLesson(newLesson) {
-        newLesson.tags = newLesson.tags.split(' ');
+        newLesson.tags = newLesson.tags.toLowerCase().split(' ');
         const lesson = await Lesson.create(newLesson);
         return lesson;
     };
